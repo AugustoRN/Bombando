@@ -1,0 +1,33 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+@model IList<Bombando.Domain.Usuario>
+
+@Html.ActionLink("Novo Usuario","Form")
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            
+            <th>Nome</th>
+            <th>Cpf</th>
+            <th>Email</th>
+            <th>Senha</th>
+            
+        </tr>
+    </thead>
+   <tbody>
+       @foreach (var usuario in Model)
+       {
+           <tr>
+               
+               <td>@usuario.Nome</td>
+               <td>@usuario.Cpf</td>
+               <td>@usuario.Email</td>
+               <td>@usuario.Senha</td>
+           </tr>
+       }
+   </tbody>
+
+</table>
+

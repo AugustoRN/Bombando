@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+@model IList<Bombando.Domain.Postagem>
+
+@Html.ActionLink("Nova Postagem", "Form","Postagem")
+
+<table data-url="data3.json" data-height="299" data-show-columns="true" data-id-field="id">
+<thead>
+    <tr>
+        <th data-field="state" data-radio="true"></th>
+        <th data-field="titulo" data-switchable="false">Titulo</th>
+        <th data-field="descricao">Descricao</th>
+        <th data-field="data">Data</th>
+        <th data-field="autor" data-visible="false">Autor</th>
+
+    </tr>
+</thead>
+
+<tbody>
+    @foreach (var postagem in Model)
+    {
+        <tr>
+            <td>@postagem.Id</td>
+            <td>@postagem.Titulo</td>
+            <td>@postagem.Descricao</td>
+            <td>@postagem.Data</td>
+            <td>@postagem.Usuario.Nome</td>
+        </tr>
+    }
+</tbody>
+
+</table>
+
+

@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "Form";
+}
+@model Bombando.Domain.Postagem
+
+
+@using (Html.BeginForm("Adiciona","Postagem",FormMethod.Post))
+{
+    @Html.LabelFor(p => p.UsuarioId, "Usuario: ")
+    @Html.DropDownListFor(p => p.UsuarioId, new SelectList(ViewBag.Usuarios,"Id","Nome"),new {@class="form-control"})
+    @Html.ValidationMessageFor(p => p.UsuarioId)
+
+    @Html.LabelFor(p => p.Titulo,"Titulo: ")
+    @Html.TextBoxFor(p => p.Titulo, new { @class="form-control"})
+    @Html.ValidationMessageFor(p => p.Titulo)
+    
+    @Html.LabelFor(p => p.Descricao,"Descrição: ")
+    @Html.TextAreaFor(p => p.Descricao, new { @class="form-control"})
+    @Html.ValidationMessageFor(p => p.Descricao)
+    <br />
+    @Html.LabelFor(p => p.Data, "Data: ")
+    @Html.EditorFor(p => p.Data, new { @class = "form-control" })
+    @Html.ValidationMessageFor(p => p.Data)
+    <br />
+    <br />
+    <input type="submit" value="Enviar" class="btn btn-success" />
+}
