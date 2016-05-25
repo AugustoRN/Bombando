@@ -7,10 +7,14 @@
 
 @using (Html.BeginForm("Adiciona","Postagem",FormMethod.Post))
 {
+    @User.Identity.Name
+    <br />
+    @WebSecurity.CurrentUserId
+    <br />
     @Html.LabelFor(p => p.UsuarioId, "Usuario: ")
     @Html.DropDownListFor(p => p.UsuarioId, new SelectList(ViewBag.Usuarios,"Id","Nome"),new {@class="form-control"})
     @Html.ValidationMessageFor(p => p.UsuarioId)
-
+   
     @Html.LabelFor(p => p.Titulo,"Titulo: ")
     @Html.TextBoxFor(p => p.Titulo, new { @class="form-control"})
     @Html.ValidationMessageFor(p => p.Titulo)
