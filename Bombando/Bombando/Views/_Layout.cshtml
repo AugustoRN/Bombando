@@ -12,13 +12,13 @@
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
-                 @Html.ActionLink("HOME", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-                 @Html.ActionLink("Registre-se", "Index", "Usuario", new { area = "" }, new { @class = "navbar-brand" })
-                 @Html.ActionLink("Novo Post", "Index", "Postagem", new { area = "" }, new { @class = "navbar-brand" })
+                 @Html.ActionLink("Inicio", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                 @Html.ActionLink("Cadastre-se", "Form", "Usuario", new { area = "" }, new { @class = "navbar-brand" })
+                 @Html.ActionLink("Visualizar Avalições", "Index", "Postagem", new { area = "" }, new { @class = "navbar-brand" })
                 @if (User.Identity.IsAuthenticated) { 
-                
+                    
                     @Html.ActionLink("Logout", "Logout", "Login", new { area = "" }, new { @class = "navbar-brand" })
-
+                    @Html.ActionLink("Escrever Avaliação", "Form", "Postagem", new { area = "" }, new { @class = "navbar-brand" })
                 }
                 else
                 {
