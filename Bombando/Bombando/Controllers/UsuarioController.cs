@@ -26,6 +26,8 @@ namespace Bombando.Controllers
 
         public ActionResult RegistrarUsuario(UsuarioModel model)
         {
+            bool usuarioExistente = false;
+          
             if (ModelState.IsValid)
             {
                 try
@@ -39,8 +41,18 @@ namespace Bombando.Controllers
                         Senha = model.Senha
 
                     };
-                    usuarioDAO.Adiciona(usuario);
-                    WebSecurity.CreateAccount(model.Nome, model.Senha);
+                    foreach(Usuario u in usuarioDAO.ListarTodos()){
+                        if (u.Nome.Equals(usuario.Nome))
+                        {
+                            usuarioExistente = true;
+                        }
+                    }
+                    if (!usuarioExistente)
+                    {
+                        usuarioDAO.Adiciona(usuario);
+                        WebSecurity.CreateAccount(model.Nome, model.Senha);
+                    }
+
                   
                     return RedirectToAction("Index");
                 }
