@@ -25,5 +25,7 @@ namespace Bombando.Models
         public string Senha { get; set; }
         [Compare("Senha")]
         public string ConfimacaoSenha { get; set; }
+        [Compare("Nome")]
+        public string ConfirmarNome { get; set; }
     }
 }
